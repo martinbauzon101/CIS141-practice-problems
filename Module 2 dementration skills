@@ -1,0 +1,9 @@
+#input
+name = input("What is your name?")
+total_bill = float(input("What is your total bill?"))
+num_people = int(input("How many people are there"))
+#calcu
+num_per_person = total_bill /num_people 
+
+#display outcome
+print(f"Hello {name}! Each person will pay ${num_per_person:.2f}!")
