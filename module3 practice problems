@@ -1,0 +1,45 @@
+# 1. Prompt the user for a word. Then, prompt the user for how many times they'd like that word repeated. Use the skills you learned in this module to print the word the correct number of times.
+#1st user input
+word = input("Enter a word:")
+
+#2nd ask user for how many times to repeat a phrase or word
+num_repeats =int(input("How many times would you like that word repeated?"))
+
+#3rd print the word given by the user the number of times given
+print(word * num_repeats)
+
+
+#2. Prompt the user for their name and their age. Calculate their age next year. Use string concatenation to print "Hello, <name>! You are <age1> years old. Next year, you will be <age2> years old."
+
+# Prompt the user for their name and age
+name = input("What is your name?")
+age = int(input("How old are you?"))
+# Calculate their age next year
+next_year_age = age + 1
+# calculation to print final message
+print("Hello, " + name + "! You are " + str(age) + " years old. Next year, you will be " + str(next_year_age) + " years old.")
+
+
+#3. Prompt the user for a sentence and a word to try to find in that sentence. Have the program print out whether the word was found in the sentence. (i.e. True or False)
+#input
+sentence = input("Enter a sentence:")
+word = input("Enter a word:")
+#input for possible word
+word_found = word in sentence
+#print if word is found or not
+print(word_found)
+
+
+#4. Prompt the user for: a word, a first index, and a last index. Slice the word at the indexes provided by the user and print to the screen.
+# Get inputs from the user
+word = input("Enter a word: ")
+first_index = int(input("Enter the first index: "))
+last_index = int(input("Enter the last index: "))
+
+# Slice the word and print the outcome
+print(word[first_index:last_index])
+
+
+#5. Print 3 words with a | character (called a pipe) in between them. Use the appropriate keyword argument in print() to do so.
+words = ("Hello", "everybody", "whatup")
+print("|".join(words))
