@@ -1,0 +1,57 @@
+#1. Given a list of numbers, write code to iterate through the list and calculate the sum of all even numbers. Print the resulting sum.
+#input
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+#variable for list
+even_sum = sum(num for num in numbers if num % 2 == 0)
+#print sentence
+print("Sum of even numbers:", even_sum)
+
+#2. With a list of strings provided, write code that counts how many times the word "Olympic" appears in the list, and then print the count.
+# List of strings
+strings = ["New york", "Port Angles", "Winter Olympics Sports", "Olympic gold medal", "Olympic College"]
+
+# look for the word Olympic (count)
+count = 0
+
+# endpoint
+for string in strings:
+    # Count how many times "Olympic" appears in each string
+    count += string.lower().count("olympic")
+
+#print
+print("The word 'Olympic' appears", count, "times.")
+
+#3. Given a list of strings, write code to create a new list that includes only the strings longer than three characters. Print the resulting filtered list.
+# List/string
+strings = ["Supreme","of","generate","to","Again!","A","clock","Pay"]
+
+# 2nd List/string
+filtered_strings = [string for string in strings if len(string) > 3]
+
+# Print result
+print("Filtered list:", filtered_strings)
+
+#4. For a list of integers, write code that counts how many numbers are positive and how many are negative, then print both counts.
+# List of numbers
+numbers = [3, -1, 5, -7, 2, -4, 8, -3]
+
+#  "settings"
+positive_count = sum(1 for num in numbers if num > 0)
+negative_count = sum(1 for num in numbers if num < 0)
+
+# print count
+print("Positive numbers:", positive_count)
+print("Negative numbers:", negative_count)
+
+#5. For a list of integers, use a loop to build a new list where each element is the square of the corresponding element in the original list. Print the new list.
+#input
+numbers = [1, 2, 3, 4, 5]
+
+#new list with element
+squared_numbers = []
+
+for num in numbers:
+    squared_numbers.append(num ** 2)
+
+# result
+print("Squared numbers:", squared_numbers)
