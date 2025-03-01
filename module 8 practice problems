@@ -1,0 +1,105 @@
+'''
+#1. Create a file called gardening_tips.txt and add at least 3 gardening tips to it.
+    Write a Python script that reads a file gardening_tips.txt and prints
+    out each tip one by one.
+'''
+# Open the file 'gardening_tips.txt' r/ read mode
+with open('gardening_tips.txt', 'r') as file:
+    # Read all lines in the file
+    tips = file.readlines()
+    for tip in tips:
+        print(tip.strip())
+'''
+#2. Write a Python program that allows users to log their hiking trips. The program should:
+    - Use a while loop to repeatedly ask for a hike name and distance in miles
+    - Save each entry to hiking_log.txt (each hike on a new line)
+    - When the user presses 0, exit the loop & print the contents of hiking_log.txt
+'''
+with open('hiking_log.txt', 'a') as file:
+    while True:
+        # hike name
+        hike_name = input("Enter the hike name (or press 0 to exit): ")
+        # If 0 loops stops
+        if hike_name == '0':
+            break
+        # hike distance
+        try:
+            distance = float(input("Enter the distance of the hike in miles: "))
+        except ValueError:
+            print("Please enter a valid number for the distance.")
+            continue
+
+        file.write(f"Hike: {hike_name}, Distance: {distance} miles\n")
+
+    # Print hiking_log.txt
+    print("\n--- Hiking Log ---")
+    with open('hiking_log.txt', 'r') as read_file:
+        contents = read_file.read()
+        print(contents)
+'''
+#3. Create a text file called song_lyrics.txt and copy the lyrics of a song into it. Write a Python program that:
+    - Reads the file
+    - Requests 5 inputs from the user: 5 words the user would like to count the frequency of
+    - Counts how many times each word appears
+    - Creates a dictionary of the words and their counts
+    - Print the dictionary to the console
+'''
+def count_word_frequency(file_name, words_to_count):
+    word_count = {}
+    #song - Wheels On The Bus
+    # Open and read the file
+    try:
+        with open(file_name, 'r') as file:
+            lyrics = file.read().lower()  # Convert to lowercase to make counting case-insensitive
+
+
+        lyrics_words = lyrics.split()
+
+
+        for word in words_to_count:
+            word_count[word] = 0
+
+
+        for word in lyrics_words:
+            if word in word_count:
+                word_count[word] += 1
+        return word_count
+    except FileNotFoundError:
+        print(f"Error: The file '{file_name}' was not found.")
+        return None
+
+
+def main():
+    file_name = 'song_lyrics.txt'
+    # Get 5 words from the user
+    words_to_count = []
+    for i in range(5):
+        word = input(f"Enter word {i+1} to count its frequency: ").lower()
+        words_to_count.append(word)
+    word_count = count_word_frequency(file_name, words_to_count)
+    if word_count is not None:
+        # Print the dictionary with word frequencies
+        print("\nWord frequencies in the song lyrics:")
+        for word, count in word_count.items():
+            print(f"'{word}': {count}")
+
+
+if __name__ == "__main__":
+    main()
+'''
+#4. Create a poll.txt file that contains a list of "yea" or "nay" votes separated by commas.
+    Write a program that reads the poll.txt file
+    Count how many votes "yea" or "nay" received and print the results.
+'''
+# open poll.txt file for "input"
+# have to make poll.txt manually
+with open('poll.txt', 'r') as file:
+    votes = file.read().strip()
+
+    vote_list = votes.split(', ')
+
+    yea_count = vote_list.count('yea')
+    nay_count = vote_list.count('nay')
+    #output
+    print(f"Yea votes: {yea_count}")
+    print(f"Nay votes: {nay_count}")
